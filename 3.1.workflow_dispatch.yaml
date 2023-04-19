@@ -1,0 +1,29 @@
+name: workflow_dispatch.yaml
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Nom de du user"
+        required: true
+        type: string
+      level:
+        description: "Niveau du user"
+        required: true
+        type: string
+      class:
+        description: "classe  du user"
+        required: true
+        default: "jedi"
+        type: choice
+        option:
+          - "jedi"
+          - "sith"
+          - "rebel"
+
+  jobs:
+    player-infos:
+      runs-on: ubuntu-latest
+      steps:
+      -name: Show player information
+      run: |
+        echo "le joueur ${{ inputs.username }} est de niveau  ${{ inputs.level }}, de classe  ${{ inputs.choice_input }}"
