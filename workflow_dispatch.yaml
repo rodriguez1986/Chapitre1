@@ -1,0 +1,27 @@
+name: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Nom de user"
+        required: true
+        type: string
+      level:
+        description: "Niveau du user"
+        required: true
+        type: string
+      class:
+        description: "Niveau du user"
+        required: true
+        type: string
+        options: ["jedi", "sith","rebel"]
+  jobs:
+    player_infos:
+      run-on: windows-latest
+      steps:
+        -name: Shows player information
+         run: |
+          echo "Le joueur${{ inputs.usename}}, de niveau${{ inputs.level}} et de classe${{ inputs.classe}}"
+
+
+
